@@ -10,6 +10,14 @@
    </head>
    
    <style>
+        .hide {
+            display: none;
+        }
+    
+        .myDIV:hover + .hide {
+            display: block;
+  
+       }
 		svg#adjacency_matrix {
 			border: 0px solid gray;
 			background-color: rgba(255, 90, 90, 0.931);
@@ -114,21 +122,21 @@
 		</div>
 		<br>
 		 <hr>
-         <h2>Keywords</h2>
-         <div id="keywords"></div>
+         <h2 class="myDIV">Keywords</h2>
+         <div class="hide" id="keywords"></div>
 		 <hr>
-		 <h2>Results</h2>
-         <div id="results"></div>
+		 <h2 class="myDIV">Results</h2>
+         <div class="hide" id="results"></div>
 		 <hr>
-		 <h2>Data preview</h2>
-         <output></output>
+		 <h2 class="myDIV">Data preview</h2>
+         <output class="hide"></output>
 		 <hr>
-         <h2>Adjacency matrix</h2>
-         <svg id="adjacency_matrix"></svg>
+         <h2 class="myDIV">Adjacency matrix</h2>
+         <svg class="hide" id="adjacency_matrix"></svg>
 		 <hr>
-         <h2>Rules graph</h2>
-		 <svg id="graph"></svg>
-         <div id='controls'></div>
+         <h2 class="myDIV">Rules graph</h2>
+		 <svg class="hide" id="graph"></svg>
+         <div class="hide" id='controls'></div>
       </div>
       <div class="footer">
          <ul>
