@@ -30,7 +30,7 @@ There is obviously no automated testing, so manually verify browser console for 
 
 Quick editing on Glitch:
 
-https://flannel-eggplant-gram.glitch.me
+https://glitch.com/~js-arules
 
 ## Docker Image
 
