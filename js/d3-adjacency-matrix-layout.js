@@ -1,11 +1,12 @@
 // https://github.com/micahstubbs/d3-adjacency-matrix-layout Version 1.0.0. Copyright 2016 contributors.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'd3'], factory) :
-  (factory((global.d3 = global.d3 || {}),global.d3));
-}(this, function (exports,d3) { 'use strict';
+    typeof define === 'function' && define.amd ? define(['exports', 'd3'], factory) :
+      (factory((global.d3 = global.d3 || {}), global.d3));
+}(this, function (exports, d3) {
+  'use strict';
 
-  function d3AdjacencyMatrixLayout () {
+  function d3AdjacencyMatrixLayout() {
     var directed = true;
     var size = [1, 1];
     var nodes = [];

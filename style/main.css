@@ -13,10 +13,6 @@ body {
 	border: .8px solid rgb(173, 173, 173);
 	margin: 5% auto;
 	box-shadow: inset 0.4px 0.4px 300px -64px rgba(99, 99, 99, 0.47);
-	-webkit-border-radius: ;
-	-moz-border-radius: ;
-	-ms-border-radius: ;
-	-o-border-radius: ;
 }
 
 #h1 {
@@ -45,8 +41,7 @@ body {
 	justify-content: space-between;
 }
 
-.choose-file,
-.csv-file {
+.choose-file, .csv-file {
 	border: none;
 	outline: none;
 	padding: 10px;
@@ -65,19 +60,18 @@ body {
 	margin-left: -200px;
 }
 
-#dwn-btn,
-#csv-file {
+#dwn-btn, #csv-file {
 	display: none;
 }
 
 span {
 	padding: 2px;
-    display: inline;
-    border-radius: 2px;
-    border: 0;
-    margin: 0 2px;
-    background: rgba(255, 90, 90, 0.931);
-    box-sizing: content-box;
+	display: inline;
+	border-radius: 2px;
+	border: 0;
+	margin: 0 2px;
+	background: rgba(255, 90, 90, 0.931);
+	box-sizing: content-box;
 	line-height: 25px;
 }
 
@@ -86,8 +80,7 @@ div#results {
 	font-family: Consolas;
 }
 
-th,
-td {
+th, td {
 	border-bottom: 1px solid #ddd;
 }
 
@@ -124,7 +117,6 @@ li:hover~li div {
 	animation: wave-animation 0.3s infinite;
 }
 
-
 /* below is just for demo styling */
 
 .footer {
@@ -135,8 +127,7 @@ li:hover~li div {
 }
 
 @keyframes wave-animation {
-	0%,
-	100% {
+	0%, 100% {
 		transform: rotate(0deg);
 	}
 	25% {
@@ -151,6 +142,7 @@ hr {
 	border-top: 1px solid #8c8b8b;
 	text-align: center;
 }
+
 hr:after {
 	content: '§';
 	display: inline-block;
@@ -166,61 +158,68 @@ hr:after {
 }
 
 .pure {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 .pure td, .pure th {
-  border: 1px solid #ddd;
-  padding: 8px;
+	border: 1px solid #ddd;
+	padding: 8px;
 }
 
-.pure tr:nth-child(even){background-color: rgba(255, 90, 90, 0.931);}
+.pure tr:nth-child(even) {
+	background-color: rgba(255, 90, 90, 0.931);
+}
 
-.pure tr:hover {background-color: #ddd;}
+.pure tr:hover {
+	background-color: #ddd;
+}
 
 .pure th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: rgba(255, 70, 70);
-  color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: rgba(255, 70, 70);
+	color: white;
 }
 
 #adjacency_matrix:hover {
-  transform: scale(1.2);
+	transform: scale(1.2);
 }
+
 #adjacency_matrix {
-  transition: all 1s;
-  transform-origin: 50% 50%;
+	transition: all 1s;
+	transform-origin: 50% 50%;
 }
 
 #graph:hover {
-  transform: scale(1.2);
-}
-#graph {
-  transition: all 1s;
-  transform-origin: 50% 50%;
+	transform: scale(1.2);
 }
 
+#graph {
+	transition: all 1s;
+	transform-origin: 50% 50%;
+}
 
 .hide {
 	display: none;
 }
 
-.myDIV:hover + .hide {
+.myDIV:hover+.hide {
 	display: block;
-
 }
+
 svg#adjacency_matrix {
 	border: 0px solid gray;
 	background-color: rgba(255, 90, 90, 0.931);
 }
+
 svg#graph {
 	border: 0px solid gray;
 	background-color: rgba(255, 90, 90, 0.931);
 }
+
 g.am-axis text {
 	font-size: 8px;
 }
@@ -235,7 +234,6 @@ g.am-axis text {
 	stroke-opacity: 0.25;
 }
 
-
 /* The emerging W3C standard
 	  that is currently Firefox-only */
 
@@ -243,7 +241,6 @@ g.am-axis text {
 	scrollbar-width: thin;
 	scrollbar-color: rgb(29, 17, 78) rgba(255, 90, 90, 0.931);
 }
-
 
 /* Works on Chrome/Edge/Safari */
 
@@ -262,28 +259,35 @@ g.am-axis text {
 }
 
 .links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
+	stroke: #999;
+	stroke-opacity: 0.6;
 }
 
 .nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
+	stroke: #fff;
+	stroke-width: 1.5px;
 }
 
 text {
-  font-family: sans-serif;
-  font-size: 10px;
+	font-family: sans-serif;
+	font-size: 10px;
 }
 
 #myProgress {
-  width: 100%;
+	width: 100%;
 }
 
 #myBar {
-  width: 1%;
-  height: 25px;
-  background-color: #4CAF50;
+	width: 1%;
+	height: 25px;
+	background-color: #4CAF50;
 }
 
-h2 { color: rgba(255, 90, 90, 0.931); font-family: 'Source Sans Pro', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
+h2 {
+	color: rgba(255, 90, 90, 0.931);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 28px;
+	font-weight: 400;
+	line-height: 32px;
+	margin: 0 0 24px;
+}

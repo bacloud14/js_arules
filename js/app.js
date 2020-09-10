@@ -51,23 +51,23 @@ var result, result0, nodes, nodes_indexes, links, links2, input, graph, max_coun
 var i = 0;
 function move(current) {
 	var elem = document.getElementById("myBar");
-	if ( current < 0 ){
+	if (current < 0) {
 		elem.style.width = 100;
 		elem.style.backgroundColor = "red";
 		elem.innerHTML = 'Processing took too much time!';
 		return
 	}
-    var previous = current - 10;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (previous >= current) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        previous++;
-        elem.style.width = previous + "%";
-      }
-    }
+	var previous = current - 10;
+	var id = setInterval(frame, 10);
+	function frame() {
+		if (previous >= current) {
+			clearInterval(id);
+			i = 0;
+		} else {
+			previous++;
+			elem.style.width = previous + "%";
+		}
+	}
 
 }
 
@@ -78,14 +78,13 @@ function handleFileSelect(evt) {
 		dynamicTyping: true,
 		worker: true,
 		complete: function (results) {
-			var header = true; 
+			var header = true;
 			var shift = 0;
-			_.forEach(results.data, function(row, i){
+			_.forEach(results.data, function (row, i) {
 				for (var key in row) {
 					if (typeof (row[key]) == "number") {
 						delete row[key]
-						if (header)
-						{
+						if (header) {
 							results.meta.fields.splice(shift, 1);
 							shift--
 						}
@@ -93,7 +92,7 @@ function handleFileSelect(evt) {
 					shift++
 				}
 				header = false
-				if(!row || Object.values(row).some(x => (x == null || x == '')))
+				if (!row || Object.values(row).some(x => (x == null || x == '')))
 					results.data.splice(i, 1);
 			});
 			var which_column = results.meta.fields;
@@ -134,111 +133,110 @@ function handleFileSelect(evt) {
 			var fire_time = new Date().getTime();
 			var current_time = new Date().getTime();
 			worker.onmessage = function (event) {
-					// ======================== tracking progress ========================
-					if (!event.data.end)
-					{
-						max_count = event.data.max_count;
-						// bar.animate((event.data.message / max_count));
-						move(Math.ceil((event.data.message / max_count)*100))
-						current_time = new Date().getTime();
-						if((current_time - fire_time)>1000){
-							worker.terminate();
-							move(-1)
-							console.log('Processing took too much time')
-						}
-						return
+				// ======================== tracking progress ========================
+				if (!event.data.end) {
+					max_count = event.data.max_count;
+					// bar.animate((event.data.message / max_count));
+					move(Math.ceil((event.data.message / max_count) * 100))
+					current_time = new Date().getTime();
+					if ((current_time - fire_time) > 1000) {
+						worker.terminate();
+						move(-1)
+						console.log('Processing took too much time')
 					}
-					result = event.data.message;
-					
-					window.csv_result = Papa.unparse(result);
+					return
+				}
+				result = event.data.message;
 
-					// ======================== Output HTML formatting ========================
-					var rhss = result.map(function (elem) {
-						return elem.rhs.join(" && ")
-					});
+				window.csv_result = Papa.unparse(result);
 
-					var lhss = result.map(function (elem) {
-						return elem.lhs.join(" && ")
-					});
-					nodes = Array.from(new Set(_.flatten(_.pluck(result, 'lhs')).concat(_.flatten(_.pluck(result, 'rhs')))))
-					$.each(nodes, function (i, w) {
-						$("#keywords").append($('<span class="highlight">').text(w));
-					});
-					var confidences = result.map(function (elem) {
-						return elem.confidence
-					});
-					var couples = lhss.map(function (e, i) {
-						return e + " ⇒ " + rhss[i] + "  -- Confidence: " + confidences[i];
-					});
-					var sentences = document.querySelector('#results');
-					var keywords = document.querySelector('#keywords');
-					
-					// ======================== Output HTML formatting for keywords highlighting ========================
-					keywords.addEventListener('click', function (event) {
-						var target = event.target;
-						var text = sentences.textContent;
-						var regex = new RegExp('(' + target.textContent + ')', 'ig');
-						text = text.replace(regex, '<span class="highlight">$1</span>');
-						sentences.innerHTML = text;
-					}, false);
-					document.getElementById("results").innerHTML = couples.join("\n");
-					document.getElementById("results").style = "overflow:auto; height:400px;"
-					printPapaObject(results);
+				// ======================== Output HTML formatting ========================
+				var rhss = result.map(function (elem) {
+					return elem.rhs.join(" && ")
+				});
 
-					// ======================== Input formatting for visualization =============
-					result0 = _.clone(result)
-					nodes = Array.from(new Set(_.flatten(_.pluck(result0, 'lhs')).concat(_.flatten(_.pluck(result0, 'rhs')))))
-					nodes_indexes = _.invert(nodes)
-					// links = result0.map(function(elem){return {'source': elem['rhs'][0], 'target': elem['lhs'][0], 'value': elem.confidence}})
-					// console.log(links)
-					links = result0
-						.filter(function (elem) {
-							return elem.confidence < 1
-						})
-						.map(function (elem) {
-							return {
-								'source': parseInt(nodes_indexes[elem['rhs'][0]]),
-								'target': parseInt(nodes_indexes[elem['lhs'][0]]),
-								'value': Math.floor(elem.confidence * 10 + 1)
-							}
-						})
-					links2 = result0
-						.filter(function (elem) {
-							return elem.confidence < 1
-						})
-						.map(function (elem) {
-							return {
-								'source': elem['rhs'][0],
-								'target': elem['lhs'][0],
-								'value': Math.floor(elem.confidence * 10 + 1)
-							}
-						})
-					var which_group = {};
-					
-					results.data.map( x => _.invert(x))
-								.forEach(function(o){ 
-									which_group = Object.assign({}, which_group, o);
-								})
-					nodes = _.map(nodes, function (node) {
-						var group = which_group[node] || which_group[node.replace("'", "").replace("'", "")]
+				var lhss = result.map(function (elem) {
+					return elem.lhs.join(" && ")
+				});
+				nodes = Array.from(new Set(_.flatten(_.pluck(result, 'lhs')).concat(_.flatten(_.pluck(result, 'rhs')))))
+				$.each(nodes, function (i, w) {
+					$("#keywords").append($('<span class="highlight">').text(w));
+				});
+				var confidences = result.map(function (elem) {
+					return elem.confidence
+				});
+				var couples = lhss.map(function (e, i) {
+					return e + " ⇒ " + rhss[i] + "  -- Confidence: " + confidences[i];
+				});
+				var sentences = document.querySelector('#results');
+				var keywords = document.querySelector('#keywords');
+
+				// ======================== Output HTML formatting for keywords highlighting ========================
+				keywords.addEventListener('click', function (event) {
+					var target = event.target;
+					var text = sentences.textContent;
+					var regex = new RegExp('(' + target.textContent + ')', 'ig');
+					text = text.replace(regex, '<span class="highlight">$1</span>');
+					sentences.innerHTML = text;
+				}, false);
+				document.getElementById("results").innerHTML = couples.join("\n");
+				document.getElementById("results").style = "overflow:auto; height:400px;"
+				printPapaObject(results);
+
+				// ======================== Input formatting for visualization =============
+				result0 = _.clone(result)
+				nodes = Array.from(new Set(_.flatten(_.pluck(result0, 'lhs')).concat(_.flatten(_.pluck(result0, 'rhs')))))
+				nodes_indexes = _.invert(nodes)
+				// links = result0.map(function(elem){return {'source': elem['rhs'][0], 'target': elem['lhs'][0], 'value': elem.confidence}})
+				// console.log(links)
+				links = result0
+					.filter(function (elem) {
+						return elem.confidence < 1
+					})
+					.map(function (elem) {
 						return {
-							name: node,
-							group: which_column.indexOf(group)
+							'source': parseInt(nodes_indexes[elem['rhs'][0]]),
+							'target': parseInt(nodes_indexes[elem['lhs'][0]]),
+							'value': Math.floor(elem.confidence * 10 + 1)
 						}
-					});
-					
-					input = {
-						nodes: nodes,
-						links: links
+					})
+				links2 = result0
+					.filter(function (elem) {
+						return elem.confidence < 1
+					})
+					.map(function (elem) {
+						return {
+							'source': elem['rhs'][0],
+							'target': elem['lhs'][0],
+							'value': Math.floor(elem.confidence * 10 + 1)
+						}
+					})
+				var which_group = {};
+
+				results.data.map(x => _.invert(x))
+					.forEach(function (o) {
+						which_group = Object.assign({}, which_group, o);
+					})
+				nodes = _.map(nodes, function (node) {
+					var group = which_group[node] || which_group[node.replace("'", "").replace("'", "")]
+					return {
+						name: node,
+						group: which_column.indexOf(group)
 					}
-					graph = {
-						nodes: nodes,
-						links: links2
-					}			
-					
-					visualizer.visualize(input, graph);
-					move(100);
-			};			
+				});
+
+				input = {
+					nodes: nodes,
+					links: links
+				}
+				graph = {
+					nodes: nodes,
+					links: links2
+				}
+
+				visualizer.visualize(input, graph);
+				move(100);
+			};
 		}
 	});
 }
@@ -271,10 +269,10 @@ function download(filename, text) {
 
 $("div.hide").hide();
 $("button.hide,h2").click(function () {
-    var target = $(this).is('h2') ? $(this).next("div.hide") : $(this).parents("div.hide");
-    target.slideToggle("slow");
+	var target = $(this).is('h2') ? $(this).next("div.hide") : $(this).parents("div.hide");
+	target.slideToggle("slow");
 	var target = $(this).is('h2') ? $(this).next("output.hide") : $(this).parents("output.hide");
-    target.slideToggle("slow");
+	target.slideToggle("slow");
 	var target = $(this).is('h2') ? $(this).next("svg.hide") : $(this).parents("svg.hide");
-    target.slideToggle("slow");
+	target.slideToggle("slow");
 });

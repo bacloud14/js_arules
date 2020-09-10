@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-	   <meta
-		  name="Association Rules mining and visualization"           
-		  content="Better understand your bank bill, or your shopping list! No upload to a remote server is necessary! This is based on Association rules mining algorithm.">
-      <title>Local association learning in JS</title>
-      <link rel="stylesheet" href="style/main.css">
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="print" onload="this.media='all'">
-   </head>
-   
-   <script src="vendors/papaparse.js" async></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
-   <script type="module" src="js/app.js" async></script>
-   <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js' async></script>
-   <script src='js/d3-adjacency-matrix-layout.js' type='text/JavaScript' async></script>
-  
-   <body>
-      <div class="wrapper">
-         <h1 id="h1">Local Association Learning right in your Browser</h1>
-         <p id="p1">Better understand your bank bill, or your shopping list! No upload to a remote server is necessary! This is based on Association rules mining algorithm. 
-            Read <a href="https://www.kdnuggets.com/2016/04/association-rules-apriori-algorithm-tutorial.html"> Association Rules and the Apriori Algorithm</a> for a better understanding. (a CSV file needs a header, otherwise results can be scrambled)
-         </p>
-         <div class="input_container">
-            <label for="dwn-btn" class="csv-file">Download rules</label>
-            <input type="button" id="dwn-btn" value="Download rules.csv file" />
-            <label for="csv-file" class="choose-file">Upload</label>
-            <input type="file" id="csv-file" name="files" />
-         </div>
-		
-		<br>
-		
-		<div id="myProgress">
-		  <div id="myBar">Loading...</div>
-		</div>
-		<br>
-		 <hr>
-         <h2 >Keywords</h2>
-         <div class="hide" id="keywords"></div>
-		 <hr>
-		 <h2 >Results</h2>
-         <div class="hide" id="results"></div>
-		 <hr>
-		 <h2 >Data preview</h2>
-         <output class="hide"></output>
-		 <hr>
-         <h2 >Adjacency matrix</h2>
-         <svg class="hide" id="adjacency_matrix"></svg>
-		 <hr>
-         <h2 >Rules graph</h2>
-		 <svg class="hide" id="graph"></svg>
-         <div class="hide" id='controls'></div>
-      </div>
-      <div class="footer">
-         <ul>
-            <li><a href="https://github.com/bacloud14/js_arules">See on GitHub</a></li>
-            <li><a href="https://datasciencetoday.net/index.php/en-us/machine-learning/179-association-rules">Read about Association rules</a></li>
-            <li><a href="https://github.com/seratch/apriori.js">apriori.js </a></li>
-            <li>
-               <div>👋</div>
-            </li>
-         </ul>
-      </div>
-	  
-	  
-   </body>
-</html>
 
+<head>
+   <meta name="Association Rules mining and visualization"
+      content="Better understand your bank bill, or your shopping list! No upload to a remote server is necessary! This is based on Association rules mining algorithm.">
+   <title>Local association learning in JS</title>
+   <link rel="stylesheet" href="style/main.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="print" onload="this.media='all'">
+</head>
+
+<script src="vendors/papaparse.js" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+<script type="module" src="js/app.js" async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js' async></script>
+<script src='js/d3-adjacency-matrix-layout.js' type='text/JavaScript' async></script>
+
+<body>
+   <div class="wrapper">
+      <h1 id="h1">Local Association Learning right in your Browser</h1>
+      <p id="p1">Better understand your bank bill, or your shopping list! No upload to a remote server is necessary!
+         This is based on Association rules mining algorithm.
+         Read <a href="https://www.kdnuggets.com/2016/04/association-rules-apriori-algorithm-tutorial.html"> Association
+            Rules and the Apriori Algorithm</a> for a better understanding. (a CSV file needs a header, otherwise
+         results can be scrambled)
+      </p>
+      <div class="input_container">
+         <label for="dwn-btn" class="csv-file">Download rules</label>
+         <input type="button" id="dwn-btn" value="Download rules.csv file" />
+         <label for="csv-file" class="choose-file">Upload</label>
+         <input type="file" id="csv-file" name="files" />
+      </div>
+
+      <br>
+
+      <div id="myProgress">
+         <div id="myBar">Loading...</div>
+      </div>
+      <br>
+      <hr>
+      <h2>Keywords</h2>
+      <div class="hide" id="keywords"></div>
+      <hr>
+      <h2>Results</h2>
+      <div class="hide" id="results"></div>
+      <hr>
+      <h2>Data preview</h2>
+      <output class="hide"></output>
+      <hr>
+      <h2>Adjacency matrix</h2>
+      <svg class="hide" id="adjacency_matrix"></svg>
+      <hr>
+      <h2>Rules graph</h2>
+      <svg class="hide" id="graph"></svg>
+      <div class="hide" id='controls'></div>
+   </div>
+   <div class="footer">
+      <ul>
+         <li><a href="https://github.com/bacloud14/js_arules">See on GitHub</a></li>
+         <li><a href="https://datasciencetoday.net/index.php/en-us/machine-learning/179-association-rules">Read about
+               Association rules</a></li>
+         <li><a href="https://github.com/seratch/apriori.js">apriori.js </a></li>
+         <li>
+            <div>👋</div>
+         </li>
+      </ul>
+   </div>
+
+
+</body>
+
+</html>
