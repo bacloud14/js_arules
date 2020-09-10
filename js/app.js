@@ -128,7 +128,7 @@ function handleFileSelect(evt) {
 				return "\"" + _.values(obj).slice(0, -1).join("\",\"") + "\"\n"
 			}).join('');
 			// ======================== Mining ========================
-			var worker = new Worker('apriori.js');
+			var worker = new Worker('./workers/apriori.js');
 			worker.postMessage(learning_dataset);
 
 			var fire_time = new Date().getTime();
