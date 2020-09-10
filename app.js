@@ -269,4 +269,12 @@ function download(filename, text) {
 	document.body.removeChild(element);
 }
 
-
+$("div.hide").hide();
+$("button.hide,h2").click(function () {
+    var target = $(this).is('h2') ? $(this).next("div.hide") : $(this).parents("div.hide");
+    target.slideToggle("slow");
+	var target = $(this).is('h2') ? $(this).next("output.hide") : $(this).parents("output.hide");
+    target.slideToggle("slow");
+	var target = $(this).is('h2') ? $(this).next("svg.hide") : $(this).parents("svg.hide");
+    target.slideToggle("slow");
+});
