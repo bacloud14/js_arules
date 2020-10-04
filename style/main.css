@@ -1,37 +1,37 @@
 body {
-	background-color: rgb(29, 17, 78);
-	font-family: 'Spectral', serif;
-	color: white;
-	font-weight: 400;
-	font-size: 20px;
+  background: white;
+  font-family: "Spectral", serif;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .wrapper {
-	width: 80%;
-	border-radius: 10px;
-	padding: 30px;
-	border: .8px solid rgb(173, 173, 173);
-	margin: 5% auto;
-	box-shadow: inset 0.4px 0.4px 300px -64px rgba(99, 99, 99, 0.47);
+  width: 80%;
+  border-radius: 10px;
+  padding: 30px;
+  background: rgb(29, 17, 78);
+  margin: 5% auto;
+  box-shadow: 10px 4px 40px 10px rgba(99, 99, 99, 0.47);
 }
 
 #h1 {
-	color: rgba(255, 90, 90, 0.931);
-	font-size: 2.5rem;
-	text-shadow: 9px 7px 19px rgba(255, 106, 106, 0.575);
-	text-align: center;
-	padding: 10px;
-	border: 1px solid rgba(255, 106, 106, 0.575);
-	transform: rotate(-1deg);
+  color: rgba(255, 90, 90, 0.931);
+  font-size: 2.5rem;
+  text-shadow: 9px 7px 19px rgba(255, 106, 106, 0.575);
+  text-align: center;
+  padding: 10px;
+  border: 1px solid rgba(255, 106, 106, 0.575);
+  /* transform: rotate(-1deg);
 	-webkit-transform: rotate(-1deg);
 	-moz-transform: rotate(-1deg);
 	-ms-transform: rotate(-1deg);
-	-o-transform: rotate(-1deg);
+	-o-transform: rotate(-1deg); */
 }
 
 #p1 {
-	text-align: center;
-	line-height: 30px;
+  text-align: center;
+  line-height: 30px;
 }
 
 .input_container {
@@ -58,11 +58,12 @@ body {
 }
 
 .csv-file {
-	margin-left: -200px;
+  margin-left: -200px;
 }
 
-#dwn-btn, #csv-file {
-	display: none;
+#dwn-btn,
+#csv-file {
+  display: none;
 }
 
 .link{
@@ -70,229 +71,232 @@ body {
 }
 
 span {
-	padding: 2px;
-	display: inline;
-	border-radius: 2px;
-	border: 0;
-	margin: 0 2px;
-	background: rgba(255, 90, 90, 0.931);
-	box-sizing: content-box;
-	line-height: 25px;
+  padding: 2px;
+  display: inline;
+  border-radius: 2px;
+  border: 0;
+  margin: 0 2px;
+  background: rgba(255, 90, 90, 0.931);
+  box-sizing: content-box;
+  line-height: 25px;
 }
 
 div#results {
-	white-space: pre;
-	font-family: Consolas;
+  white-space: pre;
+  font-family: Consolas;
 }
 
-th, td {
-	border-bottom: 1px solid #ddd;
+th,
+td {
+  border-bottom: 1px solid #ddd;
 }
 
 ul {
-	display: inline-grid;
-	grid-auto-flow: row;
-	grid-gap: 24px;
-	justify-items: center;
-	margin: auto;
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 24px;
+  justify-items: center;
+  margin: auto;
 }
 
 @media (min-width: 500px) {
-	ul {
-		grid-auto-flow: column;
-	}
+  ul {
+    grid-auto-flow: column;
+  }
 }
 
 a {
-	color: white;
-	text-decoration: none;
-	box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
+  color: white;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
 }
 
 a:hover {
-	box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+  box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
 }
 
 li:last-child {
-	grid-column: 1 / 2;
-	grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
-li:hover~li div {
-	animation: wave-animation 0.3s infinite;
+li:hover ~ li div {
+  animation: wave-animation 0.3s infinite;
 }
 
 /* below is just for demo styling */
 
 .footer {
-	display: flex;
-	background-color: rgba(255, 90, 90, 0.931);
-	line-height: 1.3;
-	font-family: Menlo, monospace;
+  display: flex;
+  background-color: rgba(255, 90, 90, 0.931);
+  line-height: 1.3;
+  font-family: Menlo, monospace;
 }
 
 @keyframes wave-animation {
-	0%, 100% {
-		transform: rotate(0deg);
-	}
-	25% {
-		transform: rotate(20deg);
-	}
-	75% {
-		transform: rotate(-15deg);
-	}
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
 }
 
 hr {
-	border-top: 1px solid #8c8b8b;
-	text-align: center;
+  border-top: 1px solid #8c8b8b;
+  text-align: center;
 }
 
 hr:after {
-	content: '§';
-	display: inline-block;
-	position: relative;
-	top: -14px;
-	padding: 0 10px;
-	background: #f0f0f0;
-	color: #8c8b8b;
-	font-size: 18px;
-	-webkit-transform: rotate(60deg);
-	-moz-transform: rotate(60deg);
-	transform: rotate(60deg);
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -14px;
+  padding: 0 10px;
+  background: #f0f0f0;
+  color: #8c8b8b;
+  font-size: 18px;
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 
 .pure {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.pure td, .pure th {
-	border: 1px solid #ddd;
-	padding: 8px;
+.pure td,
+.pure th {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
 .pure tr:nth-child(even) {
-	background-color: rgba(255, 90, 90, 0.931);
+  background-color: rgba(255, 90, 90, 0.931);
 }
 
 .pure tr:hover {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 .pure th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-	text-align: left;
-	background-color: rgba(255, 70, 70);
-	color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(255, 70, 70);
+  color: white;
 }
 
 #adjacency_matrix:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #adjacency_matrix {
-	transition: all 1s;
-	transform-origin: 50% 50%;
+  transition: all 1s;
+  transform-origin: 50% 50%;
 }
 
 #graph:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #graph {
-	transition: all 1s;
-	transform-origin: 50% 50%;
+  transition: all 1s;
+  transform-origin: 50% 50%;
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
-.myDIV:hover+.hide {
-	display: block;
+.myDIV:hover + .hide {
+  display: block;
 }
 
 svg#adjacency_matrix {
-	border: 0px solid gray;
-	background-color: rgba(255, 90, 90, 0.931);
+  border: 0px solid gray;
+  background-color: rgba(255, 90, 90, 0.931);
 }
 
 svg#graph {
-	border: 0px solid gray;
-	background-color: rgba(255, 90, 90, 0.931);
+  border: 0px solid gray;
+  background-color: rgba(255, 90, 90, 0.931);
 }
 
 g.am-axis text {
-	font-size: 8px;
+  font-size: 8px;
 }
 
 .domain {
-	fill: none;
+  fill: none;
 }
 
-.tick>line {
-	stroke: black;
-	stroke-width: 1px;
-	stroke-opacity: 0.25;
+.tick > line {
+  stroke: black;
+  stroke-width: 1px;
+  stroke-opacity: 0.25;
 }
 
 /* The emerging W3C standard
 	  that is currently Firefox-only */
 
 * {
-	scrollbar-width: thin;
-	scrollbar-color: rgb(29, 17, 78) rgba(255, 90, 90, 0.931);
+  scrollbar-width: thin;
+  scrollbar-color: rgb(29, 17, 78) rgba(255, 90, 90, 0.931);
 }
 
 /* Works on Chrome/Edge/Safari */
 
 *::-webkit-scrollbar {
-	width: 12px;
+  width: 12px;
 }
 
 *::-webkit-scrollbar-track {
-	background: rgba(255, 90, 90, 0.931);
+  background: rgba(255, 90, 90, 0.931);
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: rgb(29, 17, 78);
-	border-radius: 20px;
-	border: 3px solid rgba(255, 90, 90, 0.931);
+  background-color: rgb(29, 17, 78);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 90, 90, 0.931);
 }
 
 .links line {
-	stroke: #999;
-	stroke-opacity: 0.6;
+  stroke: #999;
+  stroke-opacity: 0.6;
 }
 
 .nodes circle {
-	stroke: #fff;
-	stroke-width: 1.5px;
+  stroke: #fff;
+  stroke-width: 1.5px;
 }
 
 text {
-	font-family: sans-serif;
-	font-size: 10px;
+  font-family: sans-serif;
+  font-size: 10px;
 }
 
 #myProgress {
-	width: 100%;
+  width: 100%;
 }
 
 #myBar {
-	width: 1%;
-	height: 25px;
-	background-color: #4CAF50;
+  width: 1%;
+  height: 25px;
+  background-color: #4caf50;
 }
 
 h2 {
-	color: rgba(255, 90, 90, 0.931);
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 28px;
-	font-weight: 400;
-	line-height: 32px;
-	margin: 0 0 24px;
+  color: rgba(255, 90, 90, 0.931);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0 0 24px;
 }
