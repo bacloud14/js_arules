@@ -42,6 +42,7 @@ body {
 }
 
 .choose-file, .csv-file {
+	cursor:pointer;
 	border: none;
 	outline: none;
 	padding: 10px;
@@ -62,6 +63,10 @@ body {
 
 #dwn-btn, #csv-file {
 	display: none;
+}
+
+.link{
+	cursor:pointer;
 }
 
 span {
