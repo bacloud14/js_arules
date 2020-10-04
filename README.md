@@ -13,7 +13,7 @@ Otherwise, it just exposes them to the Web.
 ## Glimpse of UI
 
 **HOME**
-![Screenshot][../master/home.png]
+![Screenshot](../master/home.png)
 
 ### Contribution
 
