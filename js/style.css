@@ -1,11 +1,4 @@
-body
-{
-    background: linear-gradient(to right,red,blue);
-}
-
-
-
-#h1 {
+/*#h1 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     top: 20px;
@@ -17,4 +10,4 @@ body
 .choose-file:hover
 {
     color: black;
-}
+}*/

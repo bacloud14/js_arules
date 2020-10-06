@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 body {
   background: white;
-  font-family: "Spectral", serif;
-  color: white;
-  font-weight: 400;
-  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -16,7 +17,6 @@ body {
 }
 
 #h1 {
-	font-family: Comic Sans MS, sans-serif;
 	color: white;
 	font-size: 2.5rem;
 	text-shadow: 9px 7px 19px rgba(255, 106, 106, 0.575);
@@ -80,7 +80,6 @@ span {
 
 div#results {
   white-space: pre;
-  font-family: Consolas;
 }
 
 th,
@@ -127,7 +126,6 @@ li:hover ~ li div {
   display: flex;
   background-color: rgba(255, 90, 90, 0.931);
   line-height: 1.3;
-  font-family: Menlo, monospace;
 }
 
 @keyframes wave-animation {
@@ -163,7 +161,6 @@ hr:after {
 }
 
 .pure {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -275,7 +272,6 @@ g.am-axis text {
 }
 
 text {
-  font-family: sans-serif;
   font-size: 10px;
 }
 
@@ -291,7 +287,6 @@ text {
 
 h2 {
   color: rgba(255, 90, 90, 0.931);
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 28px;
   font-weight: 400;
   line-height: 32px;
