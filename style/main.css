@@ -297,3 +297,52 @@ h2 {
   line-height: 32px;
   margin: 0 0 24px;
 }
+
+/* centered download rules and upload,
+  small change to myBar */
+@media only screen and (max-width: 768px) {
+  #h1 
+  {
+    text-align: center;
+  }
+
+  .csv-file
+  {
+    margin-left: -40px;
+  }
+
+  .input_container
+  {
+    justify-content: space-evenly;
+  }
+}
+
+/* centered download rules and upload, 
+  also Some smaller fonts to fit everything better, 
+  small change to myBar */
+@media only screen and (max-width: 320px) {
+  #h1 
+  {
+    font-size: 2rem;
+  }
+
+  .csv-file
+  {
+    font-size: 18px;
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 10px;
+    
+  }
+
+  .choose-file
+  {
+    padding-top: 20px;
+  }
+
+  #myBar
+  {
+    width: 5%;
+    padding-left: 2px;
+  }
+}
