@@ -1,3 +1,10 @@
+/* VARIABLES */
+
+:root {
+  --primary-color: hsl();
+  --secondary-color: hsl();
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 body {
