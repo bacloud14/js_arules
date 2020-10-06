@@ -1,8 +1,9 @@
 export function visualize(input, graph) {
-	createAdjacencyMatrix(input);
-	createGraph(graph)
 	document.getElementById("adjacency_matrix").setAttribute("style", "overflow:auto; height:960px; width:960px;")
 	document.getElementById("graph").setAttribute("style", "overflow:auto; height:960px; width:960px;")
+	createAdjacencyMatrix(input);
+	createGraph(graph)
+	
 }
 
 function createAdjacencyMatrix(data) {
@@ -50,18 +51,39 @@ function createAdjacencyMatrix(data) {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function putTitleToSVG(text, documentID) {
+  var title = document.createElementNS("http://www.w3.org/2000/svg","title")
+  title.textContent = text
+  document.getElementById(documentID).appendChild(title)
+}
 
 function createGraph(graph) {
 	var svg = d3.select("#graph"),
-		width = +svg.attr("width"),
-		height = +svg.attr("height");
+		width = svg.style("width"), 
+		height = svg.style("height");
+	/*
+		width = null; // parseInt(a, svg.style("width"), 10),
+		height = null; // parseInt(a, svg.style("height"), 10);
+	*/
 
+	svg.append("svg:title")
+	.text(function(d, i) {
+		return "Rules of 100% confidence. Thus, weighted by number of connections and not by confidence."; 
+	});
+
+	svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (height / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Rules of 100% confidence. Thus, weighted by number of connections and not by confidence.");
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var simulation = d3.forceSimulation()
 		.force("link", d3.forceLink().id(function (d) { return d.name; }).distance(150))
 		.force("charge", d3.forceManyBody())
-		.force("center", d3.forceCenter(width / 2, height / 2));
+		.force("center", d3.forceCenter(0,0)); //(width / 2, height / 2)
 
 
 
@@ -110,6 +132,7 @@ function createGraph(graph) {
 	simulation.force("link")
 		.links(graph.links);
 
+	// putTitleToSVG("Rules of confidence 100%", "graph");
 	function ticked() {
 		link
 			.attr("x1", function (d) { return d.source.x; })
