@@ -3,7 +3,7 @@
 
 <head>
    <meta name="Association Rules mining and visualization"
-      content="Better understand your bank bill, or your shopping list! No upload to a remote server is necessary! This is based on Association rules mining algorithm.">
+   content="Better understand your bank bill, or your shopping list! No upload to a remote server is necessary! This is based on Association rules mining algorithm.">
    <title id="title">Local association learning in JS</title>
    <link rel="stylesheet" href="style/main.css">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="print" onload="this.media='all'">
@@ -19,45 +19,45 @@
 
 <body>
    <div class="wrapper">
-      <h1 id="h1">Local Association Learning right in your Browser</h1>
-      <p id="p1">Better understand your bank bill, or your shopping list! No upload to a remote server is necessary!
-         This is based on Association rules mining algorithm.
-         Read <a href="https://www.kdnuggets.com/2016/04/association-rules-apriori-algorithm-tutorial.html"> Association
+      <div class="section-1">
+         <h1 id="h1">Local Association Learning right in your Browser</h1>
+         <p id="p1">Better understand your bank bill, or your shopping list! No upload to a remote server is necessary!
+            This is based on Association rules mining algorithm.
+            Read <a href="https://www.kdnuggets.com/2016/04/association-rules-apriori-algorithm-tutorial.html"> Association
             Rules and the Apriori Algorithm</a> for a better understanding. (a CSV file needs a header, otherwise
-         results can be scrambled)
-      </p>
-      <div class="input_container">
-         <label for="dwn-btn" class="csv-file">Download rules</label>
-         <input type="button" id="dwn-btn" value="Download rules.csv file" />
-         <label for="csv-file" class="choose-file">Upload</label>
-         <input type="file" id="csv-file" name="files" />
+            results can be scrambled.)
+         </p>
+         <div class="input_container">
+            <label for="dwn-btn" class="csv-file">Download rules</label>
+            <input type="button" id="dwn-btn" value="Download rules.csv file" />
+            <label for="csv-file" class="choose-file">Upload</label>
+            <input type="file" id="csv-file" name="files" />
+         </div>
       </div>
-
-      <br>
-
-      <div id="myProgress">
-         <div id="myBar">Loading...</div>
+      <div class="section-2">
+         <div id="myProgress">
+            <div id="myBar">Loading...</div>
+         </div>
+         <br/>
+         <hr/>
+         <h2 class="link">Keywords</h2>
+         <div class="hide" id="keywords"></div>
+         <hr/>
+         <h2 class="link">Results</h2>
+         <div class="hide" id="results"></div>
+         <hr/>
+         <h2 class="link">Data preview</h2>
+         <output class="hide"></output>
+         <hr/>
+         <h2 class="link">Adjacency matrix</h2>
+         <svg class="hide" id="adjacency_matrix"></svg>
+         <hr/>
+         <h2 class="link">Rules graph</h2>
+         <svg class="hide" id="graph"></svg>
+         <div class="hide" id='controls'></div>
       </div>
-      <br>
-      <hr>
-
-      <h2 class="link">Keywords</h2>
-      <div class="hide" id="keywords"></div>
-      <hr>
-      <h2 class="link">Results</h2>
-      <div class="hide" id="results"></div>
-      <hr>
-      <h2 class="link">Data preview</h2>
-      <output class="hide"></output>
-      <hr>
-      <h2 class="link">Adjacency matrix</h2>
-      <svg class="hide" id="adjacency_matrix"></svg>
-      <hr>
-      <h2 class="link">Rules graph</h2>
-      <svg class="hide" id="graph"></svg>
-      <div class="hide" id='controls'></div>
    </div>
-   <div class="footer">
+   <footer class="footer">
       <ul>
          <li><a href="https://github.com/bacloud14/js_arules">See on GitHub</a></li>
          <li><a href="https://datasciencetoday.net/index.php/en-us/machine-learning/179-association-rules">Read about
@@ -67,9 +67,7 @@
             <div>👋</div>
          </li>
       </ul>
-   </div>
-
-
+   </footer>
 </body>
 
 </html>
