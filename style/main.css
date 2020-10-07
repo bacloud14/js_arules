@@ -1,62 +1,141 @@
-body {
-  background: white;
-  font-family: 'Spectral', serif;
-  color: white;
-  font-weight: 400;
-  font-size: 20px;
+/* https://coolors.co/10002b-240046-3c096c-5a189a-7b2cbf-9d4edd-c77dff-e0aaff */
+
+/* VARIABLES */
+/* VARIABLES */
+
+:root {
+  --strong-purple: #9d4edd;
+  --light-purple: #c77dff;
+  --light-gray: hsl(0, 0%, 94%);
+  --light-blue: rgb(65, 83, 247);
+  --border-radius: 5px;
+  --default-transition: 150ms;
 }
 
+/* GLOBAL */
+/* GLOBAL */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap');
+
+body {
+  background: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  font-family: 'Roboto', 'Nunito', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--strong-purple);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #dfdfdf;
+  margin: 1.45rem 0;
+}
+
+.button-strong {
+  cursor: pointer;
+  color: #eee;
+  padding: .6rem 1rem;
+	font-size: 1.1rem;
+	border-radius: var(--border-radius);
+  background-color: var(--strong-purple);
+  transition: var(--default-transition);
+}
+.button-strong:hover {
+  color: #222;
+  background-color: var(--light-purple);
+}
+
+.button-light {
+  cursor: pointer;
+  color: #333;
+  padding: .4rem .6rem;
+  font-size: 1.05rem;
+  font-weight: normal;
+  border-radius: var(--border-radius);
+  border: var(--strong-purple) solid 1.5px;
+  background-color: transparent;
+  width: max-content;
+  transition: var(--default-transition);
+}
+
+.button-light:hover {
+  color: #111;
+  background-color: var(--light-purple);
+}
+
+/* STYLES */
+/* STYLES */
+
+/* NAVBAR */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--light-purple);
+.link {
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--strong-purple);
+  border-radius: 20px;
+}
+
+/* SECTION 1 (LEFT MENU) */
+
 .wrapper {
-  width: 80rem;
-  border-radius: 10px;
-  padding: 30px;
-  background: rgb(29, 17, 78);
-  margin: 5% auto;
-  box-shadow: 10px 4px 40px 10px rgba(99, 99, 99, 0.47);
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  height: 96vh;
+}
+
+.section-1 {
+  width: 25%;
+  height: 100%;
+  background-color: var(--light-gray);
+  border-right: #CCC solid 1.5px;
+  padding: 3rem 1rem 1rem;
 }
 
 #h1 {
-  font-family: Comic Sans MS, sans-serif;
-  color: white;
-  font-size: 2.5rem;
-  text-shadow: 9px 7px 19px rgba(255, 106, 106, 0.575);
-  text-align: left;
-  padding: 10px;
-  border: 5px solid rgba(233, 20, 151, 0.575);
-  background-color: rgb(29, 17, 78);
+  color: var(--strong-purple);
+  font-weight: bold;
+  font-size: 2.2rem;
+  line-height: 1.1;
+  margin: 0 0 .8rem;
 }
 
 #p1 {
-  text-align: center;
-  line-height: 30px;
+  font-size: 1.15rem;
+  line-height: 1.60;
 }
 
 .input_container {
+  margin-top: 1.2rem;
   display: flex;
-  width: 50%;
-  margin: 0 auto;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
-.choose-file,
-.csv-file {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 20px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.18);
-  box-shadow: 0px 0px 4px 2px rgba(255, 106, 106, 0.3);
-  background-color: rgba(120, 90, 255, 0.931);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-
-.csv-file {
-  margin-left: -200px;
+.input_container > .button-strong:first-child {
+  margin-right: 1rem;
 }
 
 #dwn-btn,
@@ -64,71 +143,61 @@ body {
   display: none;
 }
 
-.link {
-  cursor: pointer;
+/* SECTION 2 (RIGHT MAIN) */
+
+.section-2 {
+  width: 75%;
+  height: 100%;
+  background-color: transparent;
+  padding: 3rem 1rem 1rem;
 }
 
-span {
-  padding: 2px;
-  display: inline;
-  border-radius: 2px;
-  border: 0;
-  margin: 0 2px;
-  background: rgba(255, 90, 90, 0.931);
-  box-sizing: content-box;
-  line-height: 25px;
+#myProgress {
+  width: 100%;
+  border: #CCC solid 1.5px;
+  border-radius: var(--border-radius);
+  padding: 0;
+}
+
+#myBar {
+  width: 1%;
+  height: 25px;
+  background-color: #4caf50;
+  border-radius: var(--border-radius);
 }
 
 div#results {
   white-space: pre;
-  font-family: Consolas;
 }
 
-th,
-td {
-  border-bottom: 1px solid #ddd;
-}
-
-ul {
-  display: inline-grid;
-  grid-auto-flow: row;
-  grid-gap: 24px;
-  justify-items: center;
-  margin: auto;
-}
-
-@media (min-width: 500px) {
-  ul {
-    grid-auto-flow: column;
-  }
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
-}
-
-a:hover {
-  box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
-}
-
-li:last-child {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-
-li:hover ~ li div {
-  animation: wave-animation 0.3s infinite;
-}
-
-/* below is just for demo styling */
+/* FOOTER */
 
 .footer {
+  position: fixed;
   display: flex;
-  background-color: rgba(255, 90, 90, 0.931);
-  line-height: 1.3;
-  font-family: Menlo, monospace;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--light-gray);
+  border-top: #CCC solid 1.5px;
+  padding: .4rem;
+}
+
+.footer ul {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  list-style: none;
+}
+
+.footer ul li {
+  margin-right: 1rem;
+}
+.footer ul li:last-of-type {
+  margin-right: 0;
+}
+
+.footer ul:hover div {
+  animation: wave-animation 0.3s infinite;
 }
 
 @keyframes wave-animation {
@@ -144,11 +213,50 @@ li:hover ~ li div {
   }
 }
 
-hr {
-  border-top: 1px solid #8c8b8b;
-  text-align: center;
+/* MEDIA QUERIES */
+/* MEDIA QUERIES */
+
+/* TABLET SIZES */
+
+@media (max-width: 1000px) {
+  .section-1 {
+    width: 48%;
+    padding: 2.5rem 1rem 1rem;
+  }
+
+  .section-2 {
+    width: 52%;
+    padding: 2.5rem 1rem 1rem;
+  }
 }
 
+/* MOBILE SIZES */
+
+@media (max-width: 600px) {
+  .wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .section-1 {
+    width: 93%;
+    padding: 1rem;
+  }
+
+  .input_container {
+    margin-top: .8rem;
+    justify-content: space-between;
+  }
+
+  .section-2 {
+    width: 93%;
+    padding: 1rem 0 4rem;
+  }
+
+  .footer {
+    font-size: .85rem;
+  }
 hr:after {
   content: '§';
   display: inline-block;
@@ -162,6 +270,9 @@ hr:after {
   -moz-transform: rotate(60deg);
   transform: rotate(60deg);
 }
+
+/* BELOW IS JUST FOR DEMO STYLING */
+/* BELOW IS JUST FOR DEMO STYLING */
 
 .pure {
   font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
@@ -253,94 +364,7 @@ g.am-axis text {
 
 /* Works on Chrome/Edge/Safari */
 
-*::-webkit-scrollbar {
-  width: 12px;
-}
-
-*::-webkit-scrollbar-track {
-  background: rgba(255, 90, 90, 0.931);
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgb(29, 17, 78);
-  border-radius: 20px;
-  border: 3px solid rgba(255, 90, 90, 0.931);
-}
-
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
-}
-
 .nodes circle {
   stroke: #fff;
   stroke-width: 1.5px;
-}
-
-text {
-  font-family: sans-serif;
-  font-size: 10px;
-}
-
-#myProgress {
-  width: 100%;
-}
-
-#myBar {
-  width: 1%;
-  height: 25px;
-  background-color: #4caf50;
-}
-
-h2 {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  color: rgba(255, 90, 90, 0.931);
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 32px;
-  margin: 0 0 24px;
-}
-
-/* centered download rules and upload,
-  small change to myBar */
-@media only screen and (max-width: 768px) {
-  #h1 {
-    text-align: center;
-  }
-
-  .csv-file {
-    margin-left: -40px;
-  }
-
-  .input_container {
-    justify-content: space-evenly;
-  }
-}
-
-/* centered download rules and upload, 
-  also Some smaller fonts to fit everything better, 
-  small change to myBar */
-@media only screen and (max-width: 320px) {
-  #h1 {
-    font-size: 2rem;
-  }
-
-  .csv-file {
-    font-size: 18px;
-    text-align: center;
-    margin-left: 0px;
-    margin-right: 10px;
-  }
-
-  .choose-file {
-    padding-top: 20px;
-  }
-
-  #myBar {
-    width: 5%;
-    padding-left: 2px;
-  }
 }
