@@ -89,6 +89,8 @@ hr {
 
 *::-webkit-scrollbar-track {
   background: var(--light-purple);
+.link {
+  cursor: pointer;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -255,12 +257,25 @@ div#results {
   .footer {
     font-size: .85rem;
   }
+hr:after {
+  content: '§';
+  display: inline-block;
+  position: relative;
+  top: -14px;
+  padding: 0 10px;
+  background: #f0f0f0;
+  color: #8c8b8b;
+  font-size: 18px;
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 
 /* BELOW IS JUST FOR DEMO STYLING */
 /* BELOW IS JUST FOR DEMO STYLING */
 
 .pure {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -313,15 +328,17 @@ div#results {
   display: block;
 }
 
-svg#adjacency_matrix {
+svg#adjacency_matrix,
+svg#graph {
+  margin: 0 6rem;
   border: 0px solid gray;
   background-color: rgba(255, 90, 90, 0.931);
 }
 
-svg#graph {
+/* svg#graph {
   border: 0px solid gray;
   background-color: rgba(255, 90, 90, 0.931);
-}
+} */
 
 g.am-axis text {
   font-size: 8px;

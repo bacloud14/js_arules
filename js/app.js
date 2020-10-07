@@ -1,5 +1,5 @@
 import * as visualizer from "./visualizer.js"
-
+var DomTreeCopy = $('body').clone(true,true);
 /*
 
 if ('serviceWorker' in navigator) {
@@ -16,6 +16,9 @@ if ('serviceWorker' in navigator) {
 
 
 */
+
+
+
 window['data'] = {};
 window['csv_result'] = {}
 
@@ -49,6 +52,10 @@ var value_count = 0;
 var result, result0, nodes, nodes_indexes, links, links2, input, graph, max_count;
 
 var i = 0;
+if (sessionStorage)
+    sessionStorage.setItem("window", window);
+
+
 function move(current) {
 	var elem = document.getElementById("myBar");
 	if (current < 0) {
@@ -72,6 +79,20 @@ function move(current) {
 }
 
 function handleFileSelect(evt) {
+	localStorage.clear();
+	// reset dom
+	document.getElementById("results").innerHTML = "";
+	document.getElementById("keywords").innerHTML = "";
+	document.getElementById("adjacency_matrix").innerHTML = "";
+	document.getElementById("graph").innerHTML = "";
+	document.getElementById("myBar").style.width = 1;
+	document.getElementById("myBar").height = "25px";
+	document.getElementById("myBar").style.backgroundColor = "#4CAF50";
+	if(window.worker){
+		window.worker.terminate();
+		delete window.worker;
+	}
+	
 	var file = evt.target.files[0];
 	Papa.parse(file, {
 		header: true,
@@ -202,7 +223,7 @@ function handleFileSelect(evt) {
 					})
 				links2 = result0
 					.filter(function (elem) {
-						return elem.confidence < 1
+						return elem.confidence == 1
 					})
 					.map(function (elem) {
 						return {
@@ -236,6 +257,7 @@ function handleFileSelect(evt) {
 
 				visualizer.visualize(input, graph);
 				move(100);
+				worker.terminate()
 			};
 		}
 	});
@@ -276,3 +298,9 @@ $("button.hide,h2").click(function () {
 	var target = $(this).is('h2') ? $(this).next("svg.hide") : $(this).parents("svg.hide");
 	target.slideToggle("slow");
 });
+
+function putTitleToSVG(text, id) {
+  var title = document.createElementNS("http://www.w3.org/2000/svg","title")
+  title.textContent = text
+  document.getElementById(id).appendChild(title)
+}
