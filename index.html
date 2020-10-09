@@ -10,6 +10,29 @@
    <link rel="stylesheet" href="style/main.css">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="print" onload="this.media='all'">
    <link type="text/css" rel="stylesheet" href="C:\Users\Administrator\js_arules\js\style.css">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
 <script src="vendors/papaparse.js" async></script>
@@ -20,7 +43,7 @@
 <script src='js/d3-adjacency-matrix-layout.js' type='text/JavaScript' async></script>
 
 <body>
-   <div class="wrapper">
+   <div class="wrapper shadow-lg bg-white p-3 mb-5 rounded">
       <h1 id="h1">Local Association Learning right in your Browser</h1>
       <p id="p1">Better understand your bank bill, or your shopping list! No upload to a remote server is necessary!
          This is based on Association rules mining algorithm.
@@ -28,17 +51,23 @@
             Rules and the Apriori Algorithm</a> for a better understanding. (a CSV file needs a header, otherwise
          results can be scrambled)
       </p>
-      <div class="input_container">
-         <label for="dwn-btn" class="csv-file">Download rules</label>
+      <div class="row row-cols-1 input_container">
+         <label for="dwn-btn" class="col px-5 float-left csv-file btn btn-primary">
+        <i class="fas fa-download mr-3" style="font-size:32px;"></i>Download</label>
          <input type="button" id="dwn-btn" value="Download rules.csv file" />
-         <label for="csv-file" class="choose-file">Upload</label>
-         <input type="file" id="csv-file" name="files" />
+         <label for="csv-file" class="col float-right choose-file btn btn-success">Upload</label>
+         <input type="file" id="csv-file" accept=".xls,.xlsx,.csv,.txt" name="files" />
       </div>
 
       <br>
 
-      <div id="myProgress">
-         <div id="myBar">Loading...</div>
+       <div class="progress" style="height: 20px;">
+        <div
+          id="myBar"
+          class="progress-bar progress-bar-striped progress-bar-animated"
+        >
+          Loading...
+        </div>
       </div>
       <br>
       <hr>
@@ -52,7 +81,7 @@
       <h2 class="link">Data preview</h2>
       <output class="hide"></output>
       <hr>
-      <h2 class="link">Adjacency matrix</h2>
+      <h2 class="link ">Adjacency matrix</h2>
       <svg class="hide" id="adjacency_matrix"></svg>
       <hr>
       <h2 class="link">Rules graph</h2>
@@ -64,8 +93,8 @@
    <div class="footer">
       <ul>
          <li><a href="https://github.com/bacloud14/js_arules">See on GitHub</a></li>
-         <li><a href="https://datasciencetoday.net/index.php/en-us/machine-learning/179-association-rules">Read about
-               Association rules</a></li>
+         <li><a href="https://datasciencetoday.net/index.php/en-us/machine-learning/179-association-rules">
+               Association Rules</a></li>
          <li><a href="https://github.com/seratch/apriori.js">apriori.js </a></li>
          <li>
             <div>👋</div>
