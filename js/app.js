@@ -72,7 +72,11 @@ function move(current) {
 			i = 0;
 		} else {
 			previous++;
-			elem.style.width = previous + "%";
+      elem.style.width = previous + "%";
+      if(previous==100)
+        {elem.innerHTML = previous + '% Upload Completed!';}
+      else
+        {elem.innerHTML = previous + "%";}
 		}
 	}
 
@@ -85,14 +89,14 @@ function handleFileSelect(evt) {
 	document.getElementById("keywords").innerHTML = "";
 	document.getElementById("adjacency_matrix").innerHTML = "";
 	document.getElementById("graph").innerHTML = "";
-	document.getElementById("myBar").style.width = 1;
-	document.getElementById("myBar").height = "25px";
-	document.getElementById("myBar").style.backgroundColor = "#4CAF50";
+  var elem = document.getElementById("myBar");
+  elem.style.width=0;
+  elem.innerHTML = "Loading..";
 	if(window.worker){
 		window.worker.terminate();
 		delete window.worker;
 	}
-	
+  
 	var file = evt.target.files[0];
 	Papa.parse(file, {
 		header: true,
@@ -160,7 +164,7 @@ function handleFileSelect(evt) {
 					// bar.animate((event.data.message / max_count));
 					move(Math.ceil((event.data.message / max_count) * 100))
 					current_time = new Date().getTime();
-					if ((current_time - fire_time) > 1000) {
+					if ((current_time - fire_time) > 120000) {
 						worker.terminate();
 						move(-1)
 						console.log('Processing took too much time')
